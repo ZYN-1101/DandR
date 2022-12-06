@@ -1,9 +1,6 @@
-<div align="center"><img src="assets/header.png" width="840"></div>
-
 ## Introduction
 
 This repo contains the official PyTorch implementation of D\&R
-<div align="center"><img src="assets/arch.png" width="800"></div>
 
 ## Quick Start
 
@@ -18,7 +15,7 @@ This repo contains the official PyTorch implementation of D\&R
 * Create a virtual environment (optional)
   ```
   conda create -n dandr python=3.7
-  conda activate dandr
+  conda activate dandrzq
   ```
 * Install PyTorch according to your CUDA version 
   
@@ -58,6 +55,13 @@ This repo contains the official PyTorch implementation of D\&R
   - DeFRCN use the imagenet pretrain weights to initialize the model. 
   Download the same models from (given by DeFRCN): [GoogleDrive](https://drive.google.com/file/d/1rsE20_fSkYeIhFaNU04rBfEDkMENLibj/view?usp=sharing) [BaiduYun](https://pan.baidu.com/s/1IfxFq15LVUI3iIMGFT8slw)
   - Put the chekpoints into ImageNetPretrained/MSRA/R-101.pkl, ImageNetPretrained/torchvision, respectively
+  - We provide the BASE_WEIGHT (refer to run_*.sh) we used.
+  | Dataset | Split | Size | GoogleDrive |
+    |:---:|:---:|:---:|:---:|
+    |VOC2007| 1 | 203.8M | [download](https://drive.google.com/file/d/19LxiN9cj92YePs02k9E4-KyGY5ohTU9w/view?usp=share_link)|
+    |VOC2007| 2 | 203.8M | [download](https://drive.google.com/file/d/1t1bbJ-YsXohIDUsQvUiF8pC6f7vxh0Z3/view?usp=share_link)|
+    |VOC2007| 3 | 203.8M | [download](https://drive.google.com/file/d/1bWiS0fBrQDljTnpBFFldbZ8ZmZUmhB8w/view?usp=share_link)|
+    | COCO | - | 206.2MB | [download](https://drive.google.com/file/d/1pH-7b_1B3qm_rJo-_nEfcrHmy-PCHHZ7/view?usp=share_link) |
 
 * Text Embeddings Preparation
   - Refer to the official implementation of [CLIP](https://github.com/openai/CLIP) for text embedding generation.
