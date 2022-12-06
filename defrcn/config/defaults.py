@@ -1,0 +1,44 @@
+from detectron2.config.defaults import _C
+from detectron2.config import CfgNode as CN
+
+_CC = _C
+
+# ----------- Backbone ----------- #
+_CC.MODEL.BACKBONE.FREEZE = False
+_CC.MODEL.BACKBONE.FREEZE_AT = 3
+
+# ------------- RPN -------------- #
+_CC.MODEL.RPN.FREEZE = False
+_CC.MODEL.RPN.ENABLE_DECOUPLE = False
+_CC.MODEL.RPN.BACKWARD_SCALE = 1.0
+
+# ------------- ROI -------------- #
+_CC.MODEL.ROI_HEADS.NAME = "Res5ROIHeads"
+_CC.MODEL.ROI_HEADS.FREEZE_FEAT = False
+_CC.MODEL.ROI_HEADS.ENABLE_DECOUPLE = False
+_CC.MODEL.ROI_HEADS.BACKWARD_SCALE = 1.0
+_CC.MODEL.ROI_HEADS.OUTPUT_LAYER = "FastRCNNOutputLayers"
+_CC.MODEL.ROI_HEADS.CLS_DROPOUT = False
+_CC.MODEL.ROI_HEADS.DROPOUT_RATIO = 0.8
+_CC.MODEL.ROI_BOX_HEAD.POOLER_RESOLUTION = 7  # for faster
+
+_CC.AUX_MODEL = CN()
+_CC.AUX_MODEL.SEMANTIC_DIM = 512
+_CC.AUX_MODEL.INFERENCE_WITH_AUX = False
+_CC.AUX_MODEL.KD_TEMPERATURE = 5.0
+_CC.AUX_MODEL.WEIGHT_CE = 1.0
+_CC.AUX_MODEL.WEIGHT_KD = 1.0
+_CC.AUX_MODEL.KD_ALPHA = 0.5
+_CC.AUX_MODEL.KD_BETA = 4.0
+
+# ------------- TEST ------------- #
+_CC.TEST.PCB_ENABLE = False
+_CC.TEST.PCB_MODELTYPE = 'resnet'             # res-like
+_CC.TEST.PCB_MODELPATH = ""
+_CC.TEST.PCB_ALPHA = 0.50
+_CC.TEST.PCB_UPPER = 1.0
+_CC.TEST.PCB_LOWER = 0.05
+
+# ------------ Other ------------- #
+_CC.SOLVER.WEIGHT_DECAY = 5e-5
+_CC.MUTE_HEADER = True
